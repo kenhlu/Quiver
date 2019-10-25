@@ -247,4 +247,16 @@ function translateText(text, origin, dest) {
   if (origin === dest) return text;
   return LanguageApp.translate(text, origin, dest);
 }
+
+function getTemplate(company) {
+  //var fr = new FileReader();
+  
+  //var company_path = `./${company}.text`
+  var company_path = "./google.txt";
+  
+  var fs = require("fs");
+  var text = fs.readFileSync(company_path);
+  
+  Console.log(text)
+
 // [END apps_script_docs_translate_quickstart]
