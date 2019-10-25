@@ -257,6 +257,28 @@ function getTemplate(company) {
   var fs = require("fs");
   var text = fs.readFileSync(company_path);
   
-  Console.log(text)
+  Console.log(text);
+}
 
+function getTemplate2(company) {
+  
+  //var company_path = `./${company}.txt`;
+  var company_path = "google.txt";
+  
+  var rawFile = new XMLHttpRequest();
+  rawFile.open("GET", company_path, false);
+  rawFile.onreadystatechange = function ()
+  {
+    if(rawFile.readyState === 4)
+    {
+      if(rawFile.status === 200 || rawFile.status == 0)
+      {
+        var allText = rawFile.responseText;
+        alert(allText);
+      }
+    }
+  }
+  rawFile.send(null)
+  
+}
 // [END apps_script_docs_translate_quickstart]
